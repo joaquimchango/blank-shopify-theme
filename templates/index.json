@@ -18,10 +18,17 @@
       "settings": {
         "builder_content_entry_preview": "e529af5f6f8e414f9e1cf2b05f091bda"
       }
+    },
+    "0ef76f0c670c49ed94eddcf3221d5712_builder_io_X3EHQ8": {
+      "type": "0ef76f0c670c49ed94eddcf3221d5712-builder-io",
+      "settings": {
+        "builder_content_entry_preview": "1788f091be1e4388aa94922136077040"
+      }
     }
   },
   "order": [
     "main",
-    "88b5bafa142a4768aadd2064056917ea_builder_io_Uk7UkR"
+    "88b5bafa142a4768aadd2064056917ea_builder_io_Uk7UkR",
+    "0ef76f0c670c49ed94eddcf3221d5712_builder_io_X3EHQ8"
   ]
 }
