@@ -1,0 +1,42 @@
+{% if request.design_mode and section.settings.builder_content_entry_preview == '059ae14448184aeab1a7cf7dd5327c99' %}
+{% include 'content.059ae14448184aeab1a7cf7dd5327c99.builder' %}
+  {% else %}
+    {% include 'model.blogs-section.builder' %}
+  {% endif %}
+  
+  {% schema %}
+   {
+  "name": "Blogs section",
+  "tag": "section",
+  "settings":[
+    {
+      "type": "header",
+      "content": "Custom Builder.io Section"
+    },
+    {
+      "type": "paragraph",
+      "content": "To edit and customize this section, visit the [model in Builder](https://builder.io/content?model=bd345e4251f845a3a3c8babc3baabe4c). To learn more about how sections in Builder work with Shopify, [visit the docs](https://www.builder.io/c/docs/shopify/sections-everywhere)."
+    },
+    {
+      "type": "select",
+      "id": "builder_content_entry_preview",
+      "label": "Content Entry Preview",
+      "info": "Targeting is not used while previewing sections in the Shopify theme editor, meaning this preview will not change based on the targeting you have set. If you are using targeting, you need to manually select an entry to preview it. This setting only affects the preview, not what displays on your live site.",
+      "options": [
+        { "value": "059ae14448184aeab1a7cf7dd5327c99", "label": "Recommendations - Shine - Figma Template"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Builder entries used"
+    },
+    {
+    "type": "paragraph",
+    "content": "Name: Recommendations - Shine - Figma Template. Targeting: no targeting. Visit the [entry in Builder](https://builder.io/content/059ae14448184aeab1a7cf7dd5327c99)"
+  }
+  ],
+  "presets":[{
+    "name": "Blogs section"
+  }]
+}
+  {% endschema %}
