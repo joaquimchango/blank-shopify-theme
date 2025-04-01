@@ -37,6 +37,12 @@
         "builder_content_entry_preview": "d22a902da3cc4a96bda99ea221698c60"
       }
     },
+    "ffb061742e4b4d8ca5d7da37e8a9fc51_builder_io_XVtbQz": {
+      "type": "ffb061742e4b4d8ca5d7da37e8a9fc51-builder-io",
+      "settings": {
+        "builder_content_entry_preview": "ed5ad7b584fe46b198aa1ac627ed70a0"
+      }
+    },
     "f15bf61db0284be6ae3d70240869e9ad_builder_io_AWgjmE": {
       "type": "f15bf61db0284be6ae3d70240869e9ad-builder-io",
       "settings": {
@@ -66,12 +72,6 @@
       "settings": {
         "builder_content_entry_preview": "b486acbec4434b489c616454c51373d2"
       }
-    },
-    "b5860c16f7654a1abcdcc9780c89bdaa_builder_io_HWpWp4": {
-      "type": "b5860c16f7654a1abcdcc9780c89bdaa-builder-io",
-      "settings": {
-        "builder_content_entry_preview": "f98f29d24a76490a8d042498308eb9d7"
-      }
     }
   },
   "order": [
@@ -80,7 +80,7 @@
     "0ef76f0c670c49ed94eddcf3221d5712_builder_io_X3EHQ8",
     "d14add7f6efd45769365916e180ac091_builder_io_XGryjF",
     "093c431eae5046f0bdd881907f0cf638_builder_io_RnNBhW",
-    "b5860c16f7654a1abcdcc9780c89bdaa_builder_io_HWpWp4",
+    "ffb061742e4b4d8ca5d7da37e8a9fc51_builder_io_XVtbQz",
     "f15bf61db0284be6ae3d70240869e9ad_builder_io_AWgjmE",
     "a512074717d94190ac7bfb12364772a8_builder_io_mQtR7q",
     "b53ecc2daab440c383058753c2504c5c_builder_io_t3jMmw",
