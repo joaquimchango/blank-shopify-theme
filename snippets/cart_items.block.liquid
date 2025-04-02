@@ -1,0 +1,375 @@
+{% assign free_shipping_threshold = 100.00 %}
+{% assign progress_percentage = cart.total_price | divided_by: free_shipping_threshold | times: 100 | at_most: 100 %}
+
+<div class="cart-container">
+  <div class="cart-content">
+    <h1 class="cart-title">Your Cart ({{ cart.item_count }} items)</h1>
+    <div class="cart-header">
+      <div class="header-item">Product Name</div>
+      <div class="header-item">Unit Price</div>
+      <div class="header-item">Quantity</div>
+      <div class="header-item">Sub Total</div>
+    </div>
+    <div class="cart-items">
+      {% for item in cart.items %}
+        <div class="cart-item">
+          {% if item.image %}
+            <img src="{{ item.image | img_url: '130x' }}" alt="{{ item.title }}" class="item-image" width="130" height="130">
+          {% else %}
+            <div class="item-image-placeholder" aria-hidden="true"></div>
+          {% endif %}
+          <div class="item-name">{{ item.product.title }}</div>
+          <div class="item-price">{{ item.price | money }}</div>
+          <div class="quantity-wrapper">
+            <div class="quantity-control">
+              <button class="quantity-button" aria-label="Decrease quantity for {{ item.product.title }}" data-item-id="{{ item.id }}" data-action="decrease">-</button>
+              <div class="quantity-value" aria-live="polite">{{ item.quantity }}</div>
+              <button class="quantity-button" aria-label="Increase quantity for {{ item.product.title }}" data-item-id="{{ item.id }}" data-action="increase">+</button>
+            </div>
+          </div>
+          <div class="item-subtotal">{{ item.line_price | money }}</div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <div class="summary-label">Subtotal:</div>
+        <div class="summary-value">{{ cart.total_price | money }}</div>
+      </div>
+      <div class="summary-divider" role="presentation"></div>
+      <div class="summary-row">
+        <div class="summary-label">Sales Tax:</div>
+        <div class="summary-value">{{ cart.tax_price | money }}</div>
+      </div>
+      <div class="summary-divider" role="presentation"></div>
+      <div class="summary-row">
+        <div class="summary-label">Discount Code:</div>
+        <button class="discount-code" aria-label="Add coupon code" id="add-coupon-btn">Add Coupon</button>
+      </div>
+      <div class="summary-divider" role="presentation"></div>
+      <div class="summary-row">
+        <div class="summary-label">Grand Total:</div>
+        <div class="summary-value">{{ cart.total_price | plus: cart.tax_price | money }}</div>
+      </div>
+    </div>
+    <div class="progress-bar-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progress_percentage | round }}">
+      <div class="progress-bar" style="width: {{ progress_percentage }}%;"></div>
+    </div>
+    <p class="shipping-message" aria-live="polite">
+      {% if cart.total_price >= free_shipping_threshold %}
+        <span>Congrats, you're eligible for</span>
+        <strong>Free Shipping</strong>
+      {% else %}
+        {% assign remaining = free_shipping_threshold | minus: cart.total_price %}
+        <span>Add {{ remaining | money }} more to your cart for</span>
+        <strong>Free Shipping</strong>
+      {% endif %}
+    </p>
+    <button class="checkout-button" id="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<style>
+  .cart-container {
+    background-color: #f8f0ec;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 53px 17px;
+    font-family: Inter Tight, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .cart-container {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  }
+  .cart-content {
+    background-color: #f8f0ec;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  @media (max-width: 991px) {
+    .cart-content {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  }
+  .cart-title {
+    align-self: center;
+    margin-left: 59px;
+    font: 500 36px Cormorant, serif;
+  }
+  .cart-header {
+    display: flex;
+    width: 72%;
+    max-width: 100%;
+    align-items: center;
+    gap: 40px 114px;
+    font-size: 22px;
+    font-weight: 700;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 60px -3px 0 auto;
+  }
+  @media (max-width: 991px) {
+    .cart-header {
+      margin: 40px 10px 0 0;
+    }
+  }
+  .header-item {
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .cart-items {
+    align-self: center;
+    display: flex;
+    margin-top: 47px;
+    width: 100%;
+    max-width: 1119px;
+    font-size: 19px;
+    font-weight: 400;
+  }
+  @media (max-width: 991px) {
+    .cart-items {
+      max-width: 100%;
+      padding-right: 20px;
+      margin-top: 40px;
+    }
+  }
+  .cart-item {
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 40px 105px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  @media (max-width: 991px) {
+    .cart-item {
+      max-width: 100%;
+    }
+  }
+  .item-image, .item-image-placeholder {
+    aspect-ratio: 1.07;
+    object-fit: contain;
+    object-position: center;
+    width: 130px;
+    height: 130px;
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .item-image-placeholder {
+    background-color: #e0e0e0;
+  }
+  .item-name {
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .item-price {
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .quantity-wrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-grow: 1;
+    width: 137px;
+    margin: auto 0;
+  }
+  @media (max-width: 991px) {
+    .quantity-wrapper {
+      white-space: initial;
+    }
+  }
+  .quantity-control {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    border: 1px solid #000;
+  }
+  @media (max-width: 991px) {
+    .quantity-control {
+      white-space: initial;
+    }
+  }
+  .quantity-button {
+    padding: 5px 14px;
+    border: 1px solid #000;
+    background: none;
+    cursor: pointer;
+  }
+  @media (max-width: 991px) {
+    .quantity-button {
+      white-space: initial;
+    }
+  }
+  .quantity-value {
+    margin: auto 0;
+  }
+  .item-subtotal {
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .cart-summary {
+    display: flex;
+    margin-top: 400px;
+    min-height: 318px;
+    width: 567px;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 600;
+    justify-content: flex-start;
+    padding: 18px 0;
+    border: 1px solid #000;
+  }
+  @media (max-width: 991px) {
+    .cart-summary {
+      margin-top: 40px;
+    }
+  }
+  .summary-row {
+    display: flex;
+    min-height: 33px;
+    width: 541px;
+    max-width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .summary-label {
+    font-size: 22px;
+    align-self: stretch;
+    flex-grow: 1;
+    width: 133px;
+    margin: auto 0;
+  }
+  .summary-value {
+    font-size: 18px;
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .summary-divider {
+    min-height: 1px;
+    margin-top: 25px;
+    width: 100%;
+    border: 1px solid #000;
+  }
+  .discount-code {
+    font-size: 18px;
+    text-decoration: underline;
+    align-self: stretch;
+    margin: auto 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .progress-bar-container {
+    border-radius: 11px;
+    background-color: #e0e0e0;
+    display: flex;
+    margin-top: 50px;
+    width: 567px;
+    max-width: 100%;
+    height: 8px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    background-color: #d5c077;
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+  }
+  @media (max-width: 991px) {
+    .progress-bar-container {
+      margin-top: 40px;
+    }
+  }
+  .shipping-message {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 20px 49px 0 0;
+  }
+  @media (max-width: 991px) {
+    .shipping-message {
+      max-width: 100%;
+      margin-right: 10px;
+    }
+  }
+  .checkout-button {
+    align-self: stretch;
+    background-color: #000;
+    margin-top: 21px;
+    min-height: 68px;
+    gap: 14px;
+    font-size: 32px;
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 0 157px;
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+  @media (max-width: 991px) {
+    .checkout-button {
+      white-space: initial;
+      padding: 0 20px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const quantityButtons = document.querySelectorAll('.quantity-button');
+    const checkoutButton = document.getElementById('checkout-btn');
+    const addCouponButton = document.getElementById('add-coupon-btn');
+
+    quantityButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const itemId = this.dataset.itemId;
+        const action = this.dataset.action;
+        updateQuantity(itemId, action);
+      });
+    });
+
+    checkoutButton.addEventListener('click', function() {
+      window.location.href = '/checkout';
+    });
+
+    addCouponButton.addEventListener('click', function() {
+      // Implement coupon code logic here
+      console.log('Add coupon clicked');
+    });
+
+    function updateQuantity(itemId, action) {
+      const formData = {
+        'id': itemId,
+        'quantity': action === 'increase' ? 1 : -1
+      };
+
+      fetch('/cart/change.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Refresh the cart section or update the specific item
+        location.reload();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  });
+</script>
