@@ -1,7 +1,7 @@
 {% if request.design_mode and section.settings.builder_content_entry_preview == 'b486acbec4434b489c616454c51373d2' %}
-{% include 'content.b486acbec4434b489c616454c51373d2.builder' %}
+{% render 'content.b486acbec4434b489c616454c51373d2.builder' %}
   {% else %}
-    {% include 'model.footer.builder' %}
+    {% render 'model.footer.builder' %}
   {% endif %}
   
   {% schema %}
