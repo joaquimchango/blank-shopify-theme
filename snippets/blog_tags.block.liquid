@@ -34,7 +34,7 @@
     </style>
 <body>
     <nav class="articles-section" aria-label="Article features">
-        {% for tag in article.tags %}
+        {% for tag in blog.all_tags %}
             <div class="feature-item">
                 <span class="feature-circle" aria-hidden="true"></span>
                 <span class="feature-text">{{ tag }}</span>
