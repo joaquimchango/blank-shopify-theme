@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Features</title>
+    <style>
+        .articles-section {
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 16px;
+            gap: 16px;
+            border-width: 1px;
+            border-color: #cfc6ba;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .feature-circle {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #767474;
+        }
+        .feature-text {
+            color: #767474;
+            font-family: "Inter Tight", sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <nav class="articles-section" aria-label="Article features">
+        {% for tag in article.tags %}
+            <div class="feature-item">
+                <span class="feature-circle" aria-hidden="true"></span>
+                <span class="feature-text">{{ tag }}</span>
+            </div>
+        {% endfor %}
+    </nav>
+</body>
+</html>
