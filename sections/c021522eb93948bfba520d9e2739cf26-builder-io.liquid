@@ -1,7 +1,7 @@
 {% if request.design_mode and section.settings.builder_content_entry_preview == 'c604aaf822ab42dfafda0b228529b1bb' %}
-{% include 'content.c604aaf822ab42dfafda0b228529b1bb.builder' %}
+{% render 'content.c604aaf822ab42dfafda0b228529b1bb.builder' %}
   {% else %}
-    {% include 'model.article-template.builder' %}
+    {% render 'model.article-template.builder' %}
   {% endif %}
   
   {% schema %}
