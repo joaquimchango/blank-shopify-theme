@@ -1,0 +1,76 @@
+{% comment schema %}
+{'name': "main_blog",
+   "inputs": []
+ }
+{% endcomment %}
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 56px;
+  }
+  @media (max-width: 991px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .blog-grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+  .article-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .article-image {
+    height: 449px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .article-content {
+    padding: 0 8px;
+  }
+  .article-info {
+    margin-bottom: 12px;
+  }
+  .article-title {
+    color: #1b1718;
+    margin-bottom: 12px;
+    font: 24px/134% Inter Tight;
+  }
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #767474;
+    font-size: 18px;
+  }
+  .read-more {
+    color: #1b1718;
+    font-size: 16px;
+    text-decoration-line: underline;
+  }
+</style>
+
+<main id="main-content" class="blog-grid">
+  {% for article in blog.articles %}
+    <article class="article-card">
+      <div class="article-image">
+        {{% article.image %}}
+      </div>
+      <div class="article-content">
+        <div class="article-info">
+          <h2 class="article-title">{{ article.title }}</h2>
+          <div class="article-meta">
+            <span>{{ article.published_at | date: "%d %B %Y" }}</span>
+            <span aria-hidden="true">•</span>
+            <span>{{ article.author }}</span>
+          </div>
+        </div>
+        <a href="{{ article.url }}" class="read-more" tabindex="0">READ NOW</a>
+      </div>
+    </article>
+  {% endfor %}
+</main>
