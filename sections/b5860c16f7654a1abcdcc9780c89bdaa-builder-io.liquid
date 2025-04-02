@@ -1,7 +1,7 @@
 {% if request.design_mode and section.settings.builder_content_entry_preview == 'f98f29d24a76490a8d042498308eb9d7' %}
-{% render 'content.f98f29d24a76490a8d042498308eb9d7.builder' %}
+{% include 'content.f98f29d24a76490a8d042498308eb9d7.builder' %}
   {% else %}
-    {% render 'model.featured-products.builder' %}
+    {% include 'model.featured-products.builder' %}
   {% endif %}
   
   {% schema %}
