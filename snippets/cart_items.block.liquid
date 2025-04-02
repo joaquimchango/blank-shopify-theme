@@ -1,3 +1,10 @@
+{% comment schema %}
+{'name': "product form",
+   "inputs": []
+ }
+{% endcomment %}
+
+
 {% assign free_shipping_threshold = 100.00 %}
 {% assign progress_percentage = cart.total_price | divided_by: free_shipping_threshold | times: 100 | at_most: 100 %}
 
