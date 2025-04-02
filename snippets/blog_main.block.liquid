@@ -58,7 +58,8 @@
   {% for article in blog.articles %}
     <article class="article-card">
       <div class="article-image">
-       <img src="{{ article | img_url: 'medium' }}">
+       <img width= "100%"
+        src="{{ article | img_url: 'medium' }}">
       </div>
       <div class="article-content">
         <div class="article-info">
