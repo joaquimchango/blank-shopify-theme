@@ -1,7 +1,7 @@
 {% if request.design_mode and section.settings.builder_content_entry_preview == 'd22a902da3cc4a96bda99ea221698c60' %}
-{% include 'content.d22a902da3cc4a96bda99ea221698c60.builder' %}
+{% render 'content.d22a902da3cc4a96bda99ea221698c60.builder' %}
   {% else %}
-    {% include 'model.collection-highlight.builder' %}
+    {% render 'model.collection-highlight.builder' %}
   {% endif %}
   
   {% schema %}
