@@ -1,0 +1,377 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<style>
+  .product-options {
+    display: flex;
+    margin-top: 24px;
+    width: 100%;
+    flex-direction: column;
+  }
+  @media (max-width: 991px) {
+    .product-options {
+      max-width: 100%;
+    }
+  }
+  .option-group {
+    display: flex;
+    margin-top: 24px;
+    width: 100%;
+    max-width: 616px;
+    flex-direction: column;
+  }
+  @media (max-width: 991px) {
+    .option-group {
+      max-width: 100%;
+    }
+  }
+  .option-label {
+    color: var(--Color-Scheme-1-Text, #0a0803);
+    font: 400 16px Inter Tight, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .option-label {
+      max-width: 100%;
+    }
+  }
+  .color-options {
+    align-self: start;
+    display: flex;
+    margin-top: 8px;
+    align-items: start;
+    gap: 8px;
+  }
+  .color-option {
+    background-color: #d9d9d9;
+    width: 58px;
+    height: 58px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  .color-option:focus,
+  .color-option:hover {
+    outline: none;
+    border-color: #0a0803;
+  }
+  .color-option[aria-pressed="true"] {
+    border-color: #0a0803;
+  }
+  .size-options {
+    display: flex;
+    margin-top: 8px;
+    width: 100%;
+    align-items: start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 991px) {
+    .size-options {
+      max-width: 100%;
+    }
+  }
+  .size-row {
+    display: flex;
+    align-items: start;
+    gap: 16px;
+  }
+  .size-checkbox {
+    gap: 8px;
+    align-self: stretch;
+    font-family: Inter Tight, sans-serif;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .size-checkbox:focus {
+    outline: 2px solid #0a0803;
+    outline-offset: 2px;
+  }
+  .size-checkbox[aria-pressed="true"] {
+    background-color: #0a0803;
+    color: #fff;
+    border: 1px solid #0a0803;
+  }
+  .size-checkbox[aria-pressed="false"] {
+    background-color: rgba(10, 8, 3, 0.05);
+    color: #0a0803;
+    border: 1px solid transparent;
+  }
+  .pattern-options {
+    align-self: start;
+    display: flex;
+    margin-top: 8px;
+    align-items: start;
+    gap: 8px;
+  }
+  .pattern-option {
+    background-color: #d9d9d9;
+    width: 58px;
+    height: 58px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  .pattern-option:focus,
+  .pattern-option:hover {
+    outline: none;
+    border-color: #0a0803;
+  }
+  .pattern-option[aria-pressed="true"] {
+    border-color: #0a0803;
+  }
+  .quantity-group {
+    display: flex;
+    margin-top: 24px;
+    width: 100%;
+    max-width: 616px;
+    flex-direction: column;
+    color: var(--Color-Scheme-1-Text, #0a0803);
+    white-space: nowrap;
+    font: 400 16px Asap, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .quantity-group {
+      max-width: 100%;
+      white-space: initial;
+    }
+  }
+  .quantity-label {
+    font-family: Inter Tight, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .quantity-label {
+      max-width: 100%;
+    }
+  }
+  .quantity-input {
+    background-color: rgba(10, 8, 3, 0.05);
+    margin-top: 8px;
+    width: 64px;
+    gap: 8px;
+    align-self: stretch;
+    flex: 1;
+    flex-basis: 0%;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+  }
+  @media (max-width: 991px) {
+    .quantity-input {
+      white-space: initial;
+    }
+  }
+  .action-container {
+    display: flex;
+    margin-top: 24px;
+    max-width: 100%;
+    width: 616px;
+    flex-direction: column;
+    font-family: Asap, sans-serif;
+  }
+  .form-submit {
+    display: flex;
+    width: 100%;
+    max-width: 616px;
+    padding-top: 8px;
+    flex-direction: column;
+    font-size: 16px;
+    color: var(--Color-Neutral-Darkest, #0a0803);
+    font-weight: 500;
+    gap: 14px;
+  }
+  @media (max-width: 991px) {
+    .form-submit {
+      max-width: 100%;
+    }
+  }
+  .add-to-cart-btn {
+    width: 100%;
+    height: 56px;
+    padding: 0 40px;
+    border-radius: 100px;
+    color: #1b1718;
+    align-self: stretch;
+    font: 16px Inter Tight;
+    border: 1px solid #1b1718;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .add-to-cart-btn:hover,
+  .add-to-cart-btn:focus {
+    background-color: #1b1718;
+    color: #ffffff;
+    outline: none;
+  }
+  .buy-now-btn {
+    background-color: #1b1718;
+    width: 100%;
+    height: 56px;
+    padding: 0 40px;
+    border-radius: 100px;
+    color: #ffffff;
+    align-self: stretch;
+    font: 700 16px Inter Tight;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .buy-now-btn:hover,
+  .buy-now-btn:focus {
+    background-color: #3a3637;
+    outline: none;
+  }
+  .shipping-info {
+    color: var(--Color-Scheme-1-Text, #0a0803);
+    text-align: center;
+    align-self: start;
+    margin-top: 16px;
+    font: 400 12px Inter Tight, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .shipping-info {
+      max-width: 100%;
+    }
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<form class="product-options" aria-label="Product options" id="add-to-cart-form">
+  <div class="option-group">
+    <label for="color-options" class="option-label">Color</label>
+    <div id="color-options" class="color-options" role="group" aria-label="Color options">
+      {% for color in product.options_by_name['Color'].values %}
+        <button type="button" class="color-option" aria-label="Color: {{ color }}" aria-pressed="{% if color == current_variant.option1 %}true{% else %}false{% endif %}" style="background-color: {{ color | downcase }};" tabindex="0" data-option-value="{{ color }}">
+          <span class="visually-hidden">{{ color }}</span>
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="option-group">
+    <span id="size-label" class="option-label">Size</span>
+    <div class="size-options" role="group" aria-labelledby="size-label">
+      {% for size in product.options_by_name['Size'].values %}
+        <button type="button" class="size-checkbox" aria-pressed="{% if size == current_variant.option2 %}true{% else %}false{% endif %}" tabindex="0" data-option-value="{{ size }}">{{ size }}</button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="option-group">
+    <label for="pattern-options" class="option-label">Pattern</label>
+    <div id="pattern-options" class="pattern-options" role="group" aria-label="Pattern options">
+      {% for pattern in product.options_by_name['Pattern'].values %}
+        {% assign pattern_image = product.images | where: "alt", pattern | first %}
+        <button type="button" class="pattern-option" aria-label="Pattern: {{ pattern }}" aria-pressed="{% if pattern == current_variant.option3 %}true{% else %}false{% endif %}" tabindex="0" data-option-value="{{ pattern }}">
+          {% if pattern_image %}
+            {{ pattern_image | img_url: '58x58', crop: 'center' | img_tag: pattern, 'pattern-image', 'width:58;height:58;' }}
+          {% else %}
+            <span class="visually-hidden">{{ pattern }}</span>
+          {% endif %}
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="quantity-group">
+    <label for="quantity" class="quantity-label">Quantity</label>
+    <input type="number" id="quantity" name="quantity" class="quantity-input" value="1" min="1" aria-label="Quantity" tabindex="0">
+  </div>
+
+  <div class="action-container">
+    <div class="form-submit">
+      <button type="submit" class="add-to-cart-btn" tabindex="0">Add to Cart</button>
+      <button type="button" class="buy-now-btn" tabindex="0">Buy Now</button>
+    </div>
+    <p class="shipping-info">Free shipping on orders $50+</p>
+  </div>
+
+  <input type="hidden" name="id" value="{{ current_variant.id }}">
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('add-to-cart-form');
+    var colorOptions = document.querySelectorAll('.color-option');
+    var sizeOptions = document.querySelectorAll('.size-checkbox');
+    var patternOptions = document.querySelectorAll('.pattern-option');
+    var variantIdInput = form.querySelector('input[name="id"]');
+
+    function updateSelectedOption(options, selectedValue) {
+      options.forEach(function(option) {
+        option.setAttribute('aria-pressed', option.dataset.optionValue === selectedValue);
+      });
+    }
+
+    function getSelectedOptions() {
+      var color = document.querySelector('.color-option[aria-pressed="true"]').dataset.optionValue;
+      var size = document.querySelector('.size-checkbox[aria-pressed="true"]').dataset.optionValue;
+      var pattern = document.querySelector('.pattern-option[aria-pressed="true"]').dataset.optionValue;
+      return [color, size, pattern];
+    }
+
+    function findMatchingVariant(selectedOptions) {
+      return {{ product.variants | json }}.find(function(variant) {
+        return variant.option1 === selectedOptions[0] &&
+               variant.option2 === selectedOptions[1] &&
+               variant.option3 === selectedOptions[2];
+      });
+    }
+
+    function updateVariantId() {
+      var selectedOptions = getSelectedOptions();
+      var matchingVariant = findMatchingVariant(selectedOptions);
+      if (matchingVariant) {
+        variantIdInput.value = matchingVariant.id;
+      }
+    }
+
+    colorOptions.forEach(function(option) {
+      option.addEventListener('click', function() {
+        updateSelectedOption(colorOptions, this.dataset.optionValue);
+        updateVariantId();
+      });
+    });
+
+    sizeOptions.forEach(function(option) {
+      option.addEventListener('click', function() {
+        updateSelectedOption(sizeOptions, this.dataset.optionValue);
+        updateVariantId();
+      });
+    });
+
+    patternOptions.forEach(function(option) {
+      option.addEventListener('click', function() {
+        updateSelectedOption(patternOptions, this.dataset.optionValue);
+        updateVariantId();
+      });
+    });
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      var formData = new FormData(form);
+      fetch('/cart/add.js', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Product added to cart:', data);
+        // Here you can add code to update the cart UI or show a confirmation message
+      })
+      .catch(error => {
+        console.error('Error adding product to cart:', error);
+        // Here you can add code to show an error message to the user
+      });
+    });
+  });
+</script>
