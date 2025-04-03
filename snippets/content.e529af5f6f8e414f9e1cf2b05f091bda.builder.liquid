@@ -812,8 +812,7 @@ Last updated: Thu, 03 Apr 2025 20:54:31 GMT
               class="builder-block builder-1baac81"
             />
             <div class="builder-block builder-d5540ca">
-              {%- assign _img_url = https://placehold.co/24x24 | img_url: '1x1'
-              -%} {%- assign _use_img_url = _img_url | replace: '_1x1.', '.' -%}
+             {%- assign _img_url = 'https://placehold.co/24x24' | img_url: '1x1' -%} {%- assign _use_img_url = _img_url | replace: '_1x1.', '.' -%}
               {%- if _img_url contains 'cdn.shopify.com' -%} {%- assign
               _image_widths = '100,200,400,800,1200,1600,2000' | split: ',' -%}
               {%- capture _srcset -%} {%- for width in _image_widths -%} {%-
