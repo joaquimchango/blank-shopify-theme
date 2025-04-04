@@ -1,7 +1,7 @@
 {% if request.design_mode and section.settings.builder_content_entry_preview == '03696e34bc7343eebce1b410f527469e' %}
-{% include 'content.03696e34bc7343eebce1b410f527469e.builder' %}
+{% render 'content.03696e34bc7343eebce1b410f527469e.builder' %}
   {% else %}
-    {% include 'model.featured-collection.builder' %}
+    {% render 'model.featured-collection.builder' %}
   {% endif %}
   
   {% schema %}
