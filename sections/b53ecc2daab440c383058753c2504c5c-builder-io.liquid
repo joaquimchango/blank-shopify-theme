@@ -1,7 +1,7 @@
 {% if request.design_mode and section.settings.builder_content_entry_preview == '8354c20b4ace413faac319f12011910b' %}
-{% include 'content.8354c20b4ace413faac319f12011910b.builder' %}
+{% render 'content.8354c20b4ace413faac319f12011910b.builder' %}
   {% else %}
-    {% include 'model.blog-section.builder' %}
+    {% render 'model.blog-section.builder' %}
   {% endif %}
   
   {% schema %}
