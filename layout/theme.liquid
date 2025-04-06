@@ -18,6 +18,36 @@
     {% endif %}
 
     {% render 'meta-tags' %}
+
+<script>
+    window.data = window.data || {};
+    window.data.shop = {{ shop | json }};
+    window.data.cart = {{ cart | json }};
+    window.data.customer = {{ customer | json }}
+  </script>
+
+{% case template.name %}
+{% when  'product' %}
+  <script>
+    window.data = window.data || {};
+    window.data.product = {{ product | json }};
+  </script>
+{% when 'collection' %}
+<script>
+    window.data = window.data || {};
+    window.data.collection = {{ collection | json }};
+  </script>
+{% when 'blog' %}
+<script>
+    window.data = window.data || {};
+    window.data.blog = {{ blog | json }};
+  </script>
+{% when 'article' %}
+<script>
+    window.data = window.data || {};
+    window.data.article = {{ article | json }};
+  </script>
+{% endcase %}
     
     {{ content_for_header }}
   {% if request.design_mode %}
@@ -25,6 +55,8 @@
 {% endif %}
         {% render 'builder-head' %}
 </head>
+
+
 
   <body>
 {% comment %}
