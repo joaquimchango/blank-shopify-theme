@@ -8,18 +8,8 @@
 
 
 
-{% if request.path contains "{state.product.handle}" %}
-
   {% comment %}
     Product Header / raw version 1 / - Dana Estelline
     https://builder.io/content/0c8eaaa849f142aca04fe3bbfd586049
   {% endcomment %}
   {% render 'content.0c8eaaa849f142aca04fe3bbfd586049.builder' %}
-
-{% else %}
-  <builder-component name="product-details" api-key="3cd6da5c98c749c3aa8b4ed244f29c66" editing-only="true">
-      <!-- No matching content found! -->
-  </builder-component>
-  <script async src="https://cdn.builder.io/js/webcomponents"></script>
-
-{% endif %}
