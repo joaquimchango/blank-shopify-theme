@@ -33,7 +33,7 @@
      window.data = window.data || {};
     window.data.product = {{ product | json }};
    window.data.metafields = [
-    {{ product.metafields.custom ||json}}
+    {{ product.metafields ||json}}
   ];
   </script>
 {% when 'collection' %}
