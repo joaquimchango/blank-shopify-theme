@@ -31,7 +31,7 @@
 {% when  'product' %}
   <script>
     window.data.product = {{ product | json }};
-    window.data.product.metafield = {{ product.metafields| json }}
+    window.data.product.metafield = {{ product.metafields }}
   </script>
 {% when 'collection' %}
 <script>
