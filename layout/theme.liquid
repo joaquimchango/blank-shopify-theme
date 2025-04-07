@@ -32,9 +32,9 @@
   <script>
      window.data = window.data || {};
     window.data.product = {{ product | json }};
-   window.data.metafields = [
+   window.data.metafields = 
     {{ product.metafields.custom ||json}}
-  ];
+  ;
   </script>
 {% when 'collection' %}
 <script>
