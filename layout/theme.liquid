@@ -33,9 +33,7 @@
      window.data = window.data || {};
     window.data.product = {{ product | json }};
    window.data.metafields = [
-    {{ product.metafields.custom.dimension | json }},
-    {{ product.metafields.custom.features | json }},
-{{ product.metafields.custom.poids | json }}
+    {{ product.metafields.custom ||json}}
   ];
   </script>
 {% when 'collection' %}
