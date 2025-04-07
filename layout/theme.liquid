@@ -30,8 +30,8 @@
 {% case template.name %}
 {% when  'product' %}
   <script>
+     window.data = window.data || {};
     window.data.product = {{ product | json }};
-    window.data.product.metafield = {{ product.metafields | json  }}
   </script>
 {% when 'collection' %}
 <script>
