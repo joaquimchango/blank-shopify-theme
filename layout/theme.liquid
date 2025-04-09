@@ -23,7 +23,6 @@
     window.data = window.data || {};
     window.data.shop = {{ shop |json }};
     window.data.cart = {{ cart | json }};
-    window.data.search = {{search | json }} 
     window.data.customer = {{ customer | json }}
   </script>
 
@@ -51,6 +50,15 @@
     window.data = window.data || {};
     window.data.article = {{ article | json }};
   </script>
+{% when 'search' %}
+<script>
+    window.data = window.data || {};
+    window.data.search.results = {{ search.results | json }};
+    window.data.search.results_count = {{ search.results_count | json }}
+    window.data.search.terms = {{ search.terms }}
+  </script>
+
+
 {% endcase %}
     
     {{ content_for_header }}
