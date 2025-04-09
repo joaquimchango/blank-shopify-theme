@@ -53,9 +53,8 @@
 {% when 'search' %}
 <script>
     window.data = window.data || {};
-    window.data.search.results = {{ search.results | json }};
-    window.data.search.results_count = {{ search.results_count | json }}
-    window.data.search.terms = {{ search.terms }}
+    window.data.search = {{ search.results | json }};
+   
   </script>
 
 {% endcase %}
