@@ -6,7 +6,7 @@
   <script>
   const megamenu_main = "{{ section.settings.megamenu_main }}";
   const megamenu_links = [ "{{ section.settings.megamenu_link1 }}","{{ section.settings.megamenu_link2 }}","{{ section.settings.megamenu_link3 }}" ];
-  const image_featured = "{{ section.setting.image_featured | image_url }}";
+  const image_featured = "{{ section.setting.image_featured | image_url: width: 300 | image_tag }}";
   const link_featured = "{{ section.setting.link_featured }}";
   
   window.data = window.data || {};
