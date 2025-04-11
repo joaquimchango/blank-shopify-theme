@@ -12,9 +12,16 @@
     "main": {
       "type": "main-page",
       "settings": {}
+    },
+    "0a39f2fb33084bbc933b6c94bc924084_builder_io_zr8qXi": {
+      "type": "0a39f2fb33084bbc933b6c94bc924084-builder-io",
+      "settings": {
+        "builder_content_entry_preview": "2800f2332f5e4cc4b31cf4261b3cc8d2"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "0a39f2fb33084bbc933b6c94bc924084_builder_io_zr8qXi"
   ]
 }
