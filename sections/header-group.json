@@ -18,8 +18,8 @@
     "header-menu": {
       "type": "header-menu_1",
       "settings": {
-        "megamenu_main": "customer-account-main-menu",
-        "megamenu_link1": "footer",
+        "megamenu_main": "footer",
+        "megamenu_link1": "customer-account-main-menu",
         "megamenu_link2": "",
         "megamenu_link3": "",
         "image_featured": "shopify://shop_images/troussescosmetiques.jpg",
