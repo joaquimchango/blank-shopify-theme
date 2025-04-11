@@ -60,12 +60,6 @@
       "settings": {
         "builder_content_entry_preview": "505b6dbaa5b640f0a0930fa5a8dd2bc9"
       }
-    },
-    "a00f7b9e1cf0445799c52fc1a15bbeb2_builder_io_wEYnp3": {
-      "type": "a00f7b9e1cf0445799c52fc1a15bbeb2-builder-io",
-      "settings": {
-        "builder_content_entry_preview": "b486acbec4434b489c616454c51373d2"
-      }
     }
   },
   "order": [
@@ -77,7 +71,6 @@
     "f15bf61db0284be6ae3d70240869e9ad_builder_io_AWgjmE",
     "a512074717d94190ac7bfb12364772a8_builder_io_mQtR7q",
     "b53ecc2daab440c383058753c2504c5c_builder_io_t3jMmw",
-    "c89117c673404e8ab14f0749f0c667a5_builder_io_U4bdKC",
-    "a00f7b9e1cf0445799c52fc1a15bbeb2_builder_io_wEYnp3"
+    "c89117c673404e8ab14f0749f0c667a5_builder_io_U4bdKC"
   ]
 }
