@@ -10,6 +10,10 @@
 {
   "type": "header",
   "name": "footer_group",
-  "sections": {},
-  "order": []
+  "sections": { "footer": {
+       "type": "a00f7b9e1cf0445799c52fc1a15bbeb2-builder-io",
+      "settings": {}
+}
+  },
+  "order": ["footer"]
 }
