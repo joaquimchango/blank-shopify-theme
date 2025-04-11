@@ -4,7 +4,25 @@
     {% render 'model.menu.builder' %}
   {% endif %}
   <script>
-  const megamenu_main = {{section.settings.megamenu_main | json }};
+  const megamenu_main = [
+  {% for link in section.settings.megamenu_main.links %}
+    {
+      "title": "{{ link.title | escape }}",
+      "url": "{{ link.url }}",
+      "type": "{{ link.type }}"{% if link.links and link.links.size > 0 %},
+      "links": [
+        {% for child in link.links %}
+          {
+            "title": "{{ child.title | escape }}",
+            "url": "{{ child.url }}",
+            "type": "{{ child.type }}"
+          }{% if forloop.last == false %},{% endif %}
+        {% endfor %}
+      ]
+      {% endif %}
+    }{% if forloop.last == false %},{% endif %}
+  {% endfor %}
+];
   const megamenu_links = [ "{{ section.settings.megamenu_link1 }}","{{ section.settings.megamenu_link2 }}","{{ section.settings.megamenu_link3 }}" ];
   const image_featured = "{{ section.settings.image_featured  }}";
   const link_featured = "{{ section.settings.link_featured }}";
