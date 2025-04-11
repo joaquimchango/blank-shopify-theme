@@ -9,7 +9,7 @@
  */
 {
   "type": "header",
-  "name": "Footer",
+  "name": "footer_group",
   "sections": {},
   "order": []
 }
