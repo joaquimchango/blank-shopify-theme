@@ -18,7 +18,7 @@
     "header-menu": {
       "type": "header-menu_1",
       "settings": {
-        "megamenu_main": "footer",
+        "megamenu_main": "customer-account-main-menu",
         "megamenu_link1": "footer",
         "megamenu_link2": "",
         "megamenu_link3": "",
