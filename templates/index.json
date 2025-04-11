@@ -13,12 +13,6 @@
       "type": "index-section",
       "settings": {}
     },
-    "88b5bafa142a4768aadd2064056917ea_builder_io_Uk7UkR": {
-      "type": "88b5bafa142a4768aadd2064056917ea-builder-io",
-      "settings": {
-        "builder_content_entry_preview": "e529af5f6f8e414f9e1cf2b05f091bda"
-      }
-    },
     "0ef76f0c670c49ed94eddcf3221d5712_builder_io_X3EHQ8": {
       "type": "0ef76f0c670c49ed94eddcf3221d5712-builder-io",
       "settings": {
@@ -76,7 +70,6 @@
   },
   "order": [
     "main",
-    "88b5bafa142a4768aadd2064056917ea_builder_io_Uk7UkR",
     "0ef76f0c670c49ed94eddcf3221d5712_builder_io_X3EHQ8",
     "d14add7f6efd45769365916e180ac091_builder_io_XGryjF",
     "093c431eae5046f0bdd881907f0cf638_builder_io_RnNBhW",
