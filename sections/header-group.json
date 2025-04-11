@@ -9,7 +9,19 @@
  */
 {
   "type": "header",
-  "name": "Group name",
-  "sections": {},
-  "order": []
+  "name": "Header group",
+  "sections": {
+"announcement-bar":{
+"type": "announcement-bar",
+"settings":{}
+
+
+},
+"header-menu":{
+"type": "header-menu_1",
+"settings":{}
+}
+
+},
+  "order": ["announcement-bar","header-menu"]
 }
