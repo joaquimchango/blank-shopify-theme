@@ -4,7 +4,7 @@
     {% render 'model.menu.builder' %}
   {% endif %}
   <script>
-  const megamenu_main = "{{section.settings.megamenu_main.links | json }}";
+  const megamenu_main = "{{section.settings.megamenu_main.links  }}";
   const megamenu_links = [ "{{ section.settings.megamenu_link1 }}","{{ section.settings.megamenu_link2 }}","{{ section.settings.megamenu_link3 }}" ];
   const image_featured = "{{ section.settings.image_featured  }}";
   const link_featured = "{{ section.settings.link_featured }}";
