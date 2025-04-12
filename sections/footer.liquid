@@ -3,7 +3,56 @@
   {% else %}
     {% render 'model.footer.builder' %}
   {% endif %}
-  
+{% if request.design_mode and section.settings.builder_content_entry_preview == 'b486acbec4434b489c616454c51373d2' %}
+  {% render 'content.b486acbec4434b489c616454c51373d2.builder' %}
+{% else %}
+  {% render 'model.footer.builder' %}
+{% endif %}
+
+<script>
+window.data = window.data || {};
+window.data.section_settings = {
+  footerMenus: [
+    {
+      title: "{{ section.settings.navList1.title | escape }}",
+      links: [
+        {% for link in section.settings.navList1.links %}
+          {
+            "title": "{{ link.title | escape }}",
+            "url": "{{ link.url }}",
+            "type": "{{ link.type }}"
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {
+      title: "{{ section.settings.navList2.title | escape }}",
+      links: [
+        {% for link in section.settings.navList2.links %}
+          {
+            "title": "{{ link.title | escape }}",
+            "url": "{{ link.url }}",
+            "type": "{{ link.type }}"
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {
+      title: "{{ section.settings.navList3.title | escape }}",
+      links: [
+        {% for link in section.settings.navList3.links %}
+          {
+            "title": "{{ link.title | escape }}",
+            "url": "{{ link.url }}",
+            "type": "{{ link.type }}"
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+  ]
+};
+</script>
+ 
   {% schema %}
    {
   "name": "Footer",
