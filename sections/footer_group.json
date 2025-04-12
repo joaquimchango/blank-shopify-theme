@@ -14,8 +14,8 @@
     "footer_t6chYM": {
       "type": "footer",
       "settings": {
-        "navList1": "",
-        "navList2": "",
+        "navList1": "megamenu-liste-1",
+        "navList2": "megamenu-liste-1",
         "builder_content_entry_preview": "b486acbec4434b489c616454c51373d2"
       }
     }
