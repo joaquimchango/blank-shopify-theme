@@ -13,7 +13,9 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "settings": {}
+      "settings": {
+        "show_announcement": false
+      }
     },
     "header-menu": {
       "type": "header-menu_1",
