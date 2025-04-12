@@ -23,7 +23,7 @@
       "settings": {
         "megamenu_main": "menu-lateral",
         "megamenu_link1": "megamenu-liste-1",
-        "megamenu_link2": "",
+        "megamenu_link2": "megamenu-liste-1",
         "megamenu_link3": "",
         "image_featured": "shopify://shop_images/troussescosmetiques.jpg",
         "title_featured": "New stock available",
