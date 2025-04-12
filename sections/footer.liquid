@@ -7,10 +7,6 @@
 <script>
 window.data = window.data || {};
 window.data.footer_section = {
-  footer_logos: [
-    {{section.settings.footer_logo}},
-    {{section.settings.footer_logo1}}
-    ]
   footerMenus: [
     {
       title: "{{ section.settings.navList1.title | escape }}",
@@ -49,16 +45,6 @@ window.data.footer_section = {
       "type": "header",
       "content": "Custom Builder.io Section"
     },
-    {
-  "type": "image_picker",
-  "id": "footer_logo",
-  "label": "Logo 1"
-},
-   {
-  "type": "image_picker",
-  "id": "footer_logo1",
-  "label": "Logo 2"
-},
     {
   "type": "text",
   "id": "footer_title",
