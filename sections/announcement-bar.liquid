@@ -1,9 +1,31 @@
+{% if section.settings.show_announcement %}
+ {% render 'model.announcement-bar.builder' %}
+{% endif %}
+
+
+
 {% render 'model.announcement-bar.builder' %}
 
 
 {% schema %}
   {
     "name": "Announcement bar",
-    "settings": []
+    "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar",
+      "category": "Custom",
+      "settings": {
+        "show_announcement": true
+      }
+    }
+  ]
   }
 {% endschema %}
