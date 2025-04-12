@@ -3,11 +3,6 @@
   {% else %}
     {% render 'model.footer.builder' %}
   {% endif %}
-{% if request.design_mode and section.settings.builder_content_entry_preview == 'b486acbec4434b489c616454c51373d2' %}
-  {% render 'content.b486acbec4434b489c616454c51373d2.builder' %}
-{% else %}
-  {% render 'model.footer.builder' %}
-{% endif %}
 
 <script>
 window.data = window.data || {};
@@ -43,7 +38,7 @@ window.data.sections_settings.footer = {
  
   {% schema %}
    {
-  "name": "Custom_footer",
+  "name": "Footer",
   "tag": "section",
   "settings":[
     {
@@ -83,7 +78,7 @@ window.data.sections_settings.footer = {
   }
   ],
   "presets":[{
-    "name": "Footer"
+    "name": "Custom_footer"
   }]
 }
   {% endschema %}
