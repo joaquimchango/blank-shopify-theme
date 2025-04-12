@@ -13,7 +13,10 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "settings": {}
+      "settings": {
+        "show_announcement": true,
+        "announcement_text": "Free domestic shipping on all orders"
+      }
     },
     "header-menu": {
       "type": "header-menu_1",
@@ -23,7 +26,7 @@
         "megamenu_link2": "",
         "megamenu_link3": "",
         "image_featured": "shopify://shop_images/troussescosmetiques.jpg",
-         "title_featured": "New arrivals",
+        "title_featured": "New stock available",
         "link_featured": "",
         "builder_content_entry_preview": "e529af5f6f8e414f9e1cf2b05f091bda"
       }
