@@ -10,10 +10,24 @@
 {
   "type": "header",
   "name": "footer_group",
-  "sections": { "footer": {
-       "type": "a00f7b9e1cf0445799c52fc1a15bbeb2-builder-io",
-      "settings": {}
-}
+  "sections": {
+    "footer": {
+      "type": "a00f7b9e1cf0445799c52fc1a15bbeb2-builder-io",
+      "settings": {
+        "builder_content_entry_preview": "b486acbec4434b489c616454c51373d2"
+      }
+    },
+    "footer_rWGV3j": {
+      "type": "footer",
+      "settings": {
+        "navList1": "footer",
+        "navList2": "megamenu-liste-1",
+        "builder_content_entry_preview": "b486acbec4434b489c616454c51373d2"
+      }
+    }
   },
-  "order": ["footer"]
+  "order": [
+    "footer",
+    "footer_rWGV3j"
+  ]
 }
