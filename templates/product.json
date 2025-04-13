@@ -11,11 +11,8 @@
   "sections": {
     "main": {
       "type": "main-product",
-      "settings": {}
-    },
-    "b0da4162032542b293a5ba712e74eb7d_builder_io_VBhKC7": {
-      "type": "b0da4162032542b293a5ba712e74eb7d-builder-io",
       "settings": {
+        "gallery_fit": "cover",
         "builder_content_entry_preview": "0c8eaaa849f142aca04fe3bbfd586049"
       }
     },
@@ -28,7 +25,6 @@
   },
   "order": [
     "main",
-    "b0da4162032542b293a5ba712e74eb7d_builder_io_VBhKC7",
     "e289443a07234c07a9a58aa299afdc21_builder_io_aVXTy6"
   ]
 }
