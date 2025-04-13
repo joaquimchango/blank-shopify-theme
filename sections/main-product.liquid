@@ -1,0 +1,66 @@
+{% if request.design_mode and section.settings.builder_content_entry_preview == '0c8eaaa849f142aca04fe3bbfd586049' %}
+{% render 'content.0c8eaaa849f142aca04fe3bbfd586049.builder' %}
+  {% else %}
+    {% render 'model.product-details.builder' %}
+  {% endif %}
+<script>
+  window.data = window.data || {};
+window.data.section_settings = {
+
+
+}
+
+</script>
+  
+  {% schema %}
+   {
+  "name": "Product details",
+  "tag": "section",
+  "settings":[
+    {
+      "type": "header",
+      "content": "Custom Builder.io Section"
+    },
+    {
+  "type": "select",
+  "id": "gallery_fit",
+  "label": "Disposition gallerie image",
+  "options": [
+    {
+      "value": "cover",
+      "label": "cover"
+    },
+    {
+      "value": "contain",
+      "label": "contain"
+    }
+  ],
+  "default": "cover"
+},
+    {
+      "type": "paragraph",
+      "content": "To edit and customize this section, visit the [model in Builder](https://builder.io/content?model=b0da4162032542b293a5ba712e74eb7d). To learn more about how sections in Builder work with Shopify, [visit the docs](https://www.builder.io/c/docs/shopify/sections-everywhere)."
+    },
+    {
+      "type": "select",
+      "id": "builder_content_entry_preview",
+      "label": "Content Entry Preview",
+      "info": "Targeting is not used while previewing sections in the Shopify theme editor, meaning this preview will not change based on the targeting you have set. If you are using targeting, you need to manually select an entry to preview it. This setting only affects the preview, not what displays on your live site.",
+      "options": [
+        { "value": "0c8eaaa849f142aca04fe3bbfd586049", "label": "Product Header / raw version 1 / - Dana "}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Builder entries used"
+    },
+    {
+    "type": "paragraph",
+    "content": "Name: Product Header / raw version 1 / - Dana . Targeting: no targeting. Visit the [entry in Builder](https://builder.io/content/0c8eaaa849f142aca04fe3bbfd586049)"
+  }
+  ],
+  "presets":[{
+    "name": "Product details"
+  }]
+}
+  {% endschema %}
