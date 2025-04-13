@@ -12,7 +12,7 @@
     "main": {
       "type": "main-product",
       "settings": {
-        "gallery_fit": "contain",
+        "gallery_fit": "cover",
         "builder_content_entry_preview": "0c8eaaa849f142aca04fe3bbfd586049"
       }
     },
